@@ -1,4 +1,10 @@
-# xlsx
+# knodeo_xlsx
+
+This is a fork of xlsx that is intended for using Excel files for reporting.
+
+This means that much of the functionality of `xlsx` is pared back. It is not intended to be used in web browsers in the way that `xlsx` can be, and isn't intended to be a general `xlsx` file handling tool. For that, you should still use `xlsx` instead.
+
+# XLSX's original readme below
 
 Parser and writer for various spreadsheet formats.  Pure-JS cleanroom
 implementation from official specifications and related documents.
