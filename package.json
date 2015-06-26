@@ -1,6 +1,6 @@
 {
   "name": "knodeo_xlsx",
-  "version": "0.1.3",
+  "version": "0.1.3a",
   "author": "",
   "description": "Modified version of SheetJS/js-xlsx that can inject data into a spreadsheet without losing styles",
   "keywords": [
