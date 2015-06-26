@@ -79,7 +79,10 @@ function write_zip(wb, opts) {
 	/* TODO: something more intelligent with styles */
 
 	f = "xl/styles." + wbext;
-	zip.file(f, write_sty(wb, f, opts));
+  // sn 75:4
+  zip.file(f, (wb.RawStyle !== undefined) ? wb.RawStyle : write_sty(wb, f, opts));
+	// zip.file(f, write_sty(wb, f, opts));
+  //
 	ct.styles.push(f);
 	add_rels(opts.wbrels, ++rId, "styles." + wbext, RELS.STY);
 

@@ -144,8 +144,17 @@ function write_ws_xml_cell(cell, ref, ws, opts, idx, wb) {
 		default: vv = cell.v; break;
 	}
 	var v = writetag('v', escapexml(vv)), o = {r:ref};
+
+
+
+
+
 	/* TODO: cell style */
-	var os = get_cell_style(opts.cellXfs, cell, opts);
+
+  // sn 75:3 -- breaks
+	// var os = get_cell_style(opts.cellXfs, cell, opts);
+  var os = (cell.RawStyle !== undefined) ? cell.RawStyle : get_cell_style(opts.cellXfs, cell, opts);
+  //
 	if(os !== 0) o.s = os;
 	switch(cell.t) {
 		case 'n': break;
@@ -256,6 +265,9 @@ return function parse_ws_xml_data(sdata, s, opts, guess) {
 				}
 			}
 			safe_format(p, fmtid, fillid, opts);
+      // sn 75:2
+      p.RawStyle = tag.s;
+      //      
 			s[tag.r] = p;
 		}
 	}

@@ -132,6 +132,9 @@ function parse_zip(zip, opts) {
 		out.keys = entries;
 		out.files = zip.files;
 	}
+  // sn hack issue 75:1
+  if(dir.style) out.RawStyle = getzipdata(zip, dir.style.replace(/^\//,''));
+  //
 	if(opts.bookVBA) {
 		if(dir.vba.length > 0) out.vbaraw = getzipdata(zip,dir.vba[0],true);
 		else if(dir.defaults.bin === 'application/vnd.ms-office.vbaProject') out.vbaraw = getzipdata(zip,'xl/vbaProject.bin',true);
